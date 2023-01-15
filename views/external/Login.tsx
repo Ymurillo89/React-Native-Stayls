@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { View, Text,TextInput,TouchableOpacity,Modal,Alert } from 'react-native'
-import { getLogin } from '../services/login';
-import { IGetDateAvailableCab, IGetUser } from '../models/interfaces';
+import { getLogin } from '../../services/Login';
+import { IGetDateAvailableCab, IGetUser } from '../../models/interfaces';
 
 
 const login = () => {
@@ -28,9 +28,7 @@ const login = () => {
     if(user.user!="" && user.password!=""){
       getLogin(user.user,user.password).then(items => setLoginUser(items));
 
-      console.log(loginUser);
-      
-
+  
 
     }
 
@@ -72,15 +70,13 @@ const login = () => {
           onChangeText={text=>user.password=text}
         ></TextInput>
 
-      </View>
-        
+      </View>        
 
       <View className='flex flex-row justify-center '>
         <TouchableOpacity className='inline-block rounded border border-indigo-600 bg-indigo-600 px-10 mt-6' onPress={handleLogin}>
           <Text className='text-white text-center p-2'>Ingresar</Text>
         </TouchableOpacity>
-      </View>
-     
+      </View>     
       
       
     </View>
